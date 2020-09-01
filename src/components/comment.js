@@ -1,23 +1,25 @@
 import React from 'react';
-import StarRating from './Stars';
-import Post from './post';
 
-let e = React.createElement
+
+
 
 export default class Comment extends React.Component {
-    render() {
+    constructor(props) {
+        super(props);
+      }
+      
+    render() { 
+        let newComments = this.props.movieArray.map((comment, index) => {
+            return(
+            <h3 className="reviews" key={index}>{comment}</h3>
+            )
+        })
         return (
-            <div className="card w-75">
-                <div className="card-header bg-primary text-white">
-                    {this.props.username} {this.props.date}
-                </div>
-                <div className="card-body">
-                    {this.props.content}
-                </div>
-                <div className="card-footer">
-                    <StarRating />
-                </div>
-                </div>
+            <div>
+        {newComments}
+            </div>
      );
    }
 }
+
+//Movie Reviews
